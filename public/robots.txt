@@ -1,0 +1,22 @@
+# Robots.txt for China Insights Blog
+
+User-agent: *
+Allow: /
+
+# Directories
+Allow: /artigos/
+Allow: /biblioteca/
+Allow: /sobre/
+Allow: /categorias/
+
+# Sitemap
+Sitemap: https://chinainsights.com.br/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow admin areas (when implemented)
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /downloads/*.pdf
