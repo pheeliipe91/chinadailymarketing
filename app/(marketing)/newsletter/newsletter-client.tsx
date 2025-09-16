@@ -112,16 +112,16 @@ export function NewsletterClient() {
                     <span className="text-white text-sm font-bold">3</span>
                   </div>
                   <p className="text-gray-600 dark:text-gray-300">
-                    Explore nossa biblioteca premium de guias sobre o mercado chinês
+                    Explore nossos cursos premium sobre o mercado chinês
                   </p>
                 </div>
               </div>
               <div className="mt-8">
                 <a
-                  href="/biblioteca"
+                  href="/cursos"
                   className="btn-primary inline-flex items-center space-x-2"
                 >
-                  <span>🚀 Explorar Biblioteca Premium</span>
+                  <span>🚀 Explorar Cursos Premium</span>
                 </a>
               </div>
             </div>

@@ -11,8 +11,8 @@ import { SearchModal } from './search-modal'
 const navigation = [
   { name: 'Início', href: '/' },
   { name: 'Artigos', href: '/artigos' },
-  { name: 'Cursos', href: '/biblioteca' },
-  { name: 'Podcasts', href: '/podcasts' },
+  { name: 'Cursos', href: '/cursos' },
+  { name: 'Frameworks', href: '/frameworks' },
   { name: 'Projeto Mergulho', href: '/deep-dive' },
   { name: 'Sobre', href: '/sobre' },
 ]

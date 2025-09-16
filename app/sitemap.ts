@@ -39,7 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/biblioteca`,
+      url: `${baseUrl}/cursos`,
       lastModified: new Date(),
       changeFrequency: 'weekly' as const,
       priority: 0.8,

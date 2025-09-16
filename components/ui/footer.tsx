@@ -4,7 +4,7 @@ import { Mail, Linkedin, Twitter, Github } from 'lucide-react'
 const footerLinks = {
   conteudo: [
     { name: 'Artigos', href: '/artigos' },
-    { name: 'Biblioteca Premium', href: '/biblioteca' },
+    { name: 'Cursos Premium', href: '/cursos' },
     { name: 'Newsletter', href: '/newsletter' },
   ],
   sobre: [

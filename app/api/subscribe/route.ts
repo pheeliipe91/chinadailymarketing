@@ -107,9 +107,9 @@ export async function POST(request: NextRequest) {
 
             <!-- CTA Button -->
             <div style="text-align: center; margin: 40px 0;">
-              <a href="${baseUrl}/biblioteca" 
+              <a href="${baseUrl}/cursos" 
                  style="display: inline-block; background: linear-gradient(135deg, #FF453A 0%, #FF6B35 100%); color: white; text-decoration: none; padding: 16px 32px; border-radius: 8px; font-weight: bold; font-size: 16px; box-shadow: 0 4px 12px rgba(255, 69, 58, 0.3);">
-                🚀 Acessar Biblioteca Premium
+                🚀 Acessar Cursos Premium
               </a>
             </div>
 
@@ -158,7 +158,7 @@ export async function POST(request: NextRequest) {
             <div style="margin: 20px 0;">
               <a href="https://chinadailymarketing.com" style="color: #FF453A; text-decoration: none; margin: 0 15px;">Website</a>
               <a href="https://chinadailymarketing.com/artigos" style="color: #FF453A; text-decoration: none; margin: 0 15px;">Blog</a>
-              <a href="https://chinadailymarketing.com/biblioteca" style="color: #FF453A; text-decoration: none; margin: 0 15px;">Biblioteca</a>
+              <a href="https://chinadailymarketing.com/cursos" style="color: #FF453A; text-decoration: none; margin: 0 15px;">Cursos</a>
             </div>
             
             <p style="color: #999; margin: 15px 0 0 0; font-size: 12px;">

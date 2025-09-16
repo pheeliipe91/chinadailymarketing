@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import './globals.css'
 import { ThemeProvider } from '@/components/providers/theme-provider'
-import { Analytics } from '@vercel/analytics/react'
+import { WebVitals } from '@/components/providers/web-vitals'
+import { UmamiAnalytics } from '@/components/analytics/umami-analytics'
+import './globals.css'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -11,29 +12,29 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'China Insights - Análises Profundas sobre a China Moderna',
-  description: 'Blog especializado em economia, tecnologia e cultura chinesa. Conteúdo aprofundado e diferenciado sobre o gigante asiático.',
-  keywords: 'China, economia chinesa, tecnologia, Shenzhen, cultura chinesa, negócios China',
-  authors: [{ name: 'China Insights' }],
-  creator: 'China Insights',
-  publisher: 'China Insights',
+  title: 'China Daily Marketing - Insights Reais de Shanghai',
+  description: 'Insights autênticos sobre o mercado chinês por Phelipe Xavier, que vive em Shanghai há 5 anos. Conteúdo prático sobre economia, tecnologia e negócios na China.',
+  keywords: 'China, marketing China, Shanghai, economia chinesa, tecnologia, negócios China, KOLs, Metaso, mercado chinês',
+  authors: [{ name: 'Phelipe Xavier' }],
+  creator: 'Phelipe Xavier',
+  publisher: 'China Daily Marketing',
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
   openGraph: {
-    title: 'China Insights - Análises Profundas sobre a China Moderna',
-    description: 'Blog especializado em economia, tecnologia e cultura chinesa.',
-    url: 'https://chinainsights.com.br',
-    siteName: 'China Insights',
+    title: 'China Daily Marketing - Insights Reais de Shanghai',
+    description: 'Insights autênticos sobre o mercado chinês por Phelipe Xavier, que vive em Shanghai há 5 anos.',
+    url: 'https://chinadailymarketing.com',
+    siteName: 'China Daily Marketing',
     locale: 'pt_BR',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'China Insights',
-    description: 'Blog especializado em economia, tecnologia e cultura chinesa.',
+    title: 'China Daily Marketing',
+    description: 'Insights autênticos sobre o mercado chinês por Phelipe Xavier, que vive em Shanghai há 5 anos.',
   },
   robots: {
     index: true,
@@ -63,7 +64,13 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
-          <Analytics />
+          <WebVitals />
+          {process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID && (
+            <UmamiAnalytics
+              websiteId={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
+              src={process.env.NEXT_PUBLIC_UMAMI_SRC}
+            />
+          )}
         </ThemeProvider>
       </body>
     </html>

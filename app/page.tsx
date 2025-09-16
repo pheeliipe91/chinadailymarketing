@@ -1,7 +1,9 @@
 import { Header } from '@/components/ui/header'
 import { Footer } from '@/components/ui/footer'
 import { ArticleCard } from '@/components/ui/article-card'
+import { NewsletterSignup } from '@/components/ui/newsletter-signup'
 import { ArrowRight, Sparkles, TrendingUp, Users, Globe, BookOpen, Eye, Clock, Calendar, Star, CheckCircle, BarChart3, MessageSquare, Share2, Bookmark } from 'lucide-react'
+import { PopularArticles } from '@/components/ui/popular-articles'
 import Link from 'next/link'
 import { getAllArticles } from '@/lib/contentful'
 import { formatDate } from '@/lib/utils'
@@ -57,71 +59,41 @@ export default async function HomePage() {
       {/* Hero Section - Reader First */}
       <section className="relative pt-28 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Content */}
-            <div className="lg:col-span-7">
-              <div className="inline-flex items-center px-4 py-2 rounded-full bg-accent-red/10 text-accent-red text-sm font-medium mb-6">
-                <div className="w-2 h-2 bg-accent-red rounded-full mr-2 animate-pulse"></div>
-                Ao vivo de Shanghai
-              </div>
-              
-              <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 leading-tight">
-                Insights reais da
-                <span className="block text-gradient">China que importa</span>
-              </h1>
-              
-              <p className="text-xl text-foreground-secondary dark:text-foreground-dark-secondary mb-8 leading-relaxed">
-                Sou Phelipe, moro em Shanghai há 5 anos e compartilho o que realmente acontece 
-                no mercado chinês. Sem teorias, apenas experiências práticas de quem vive aqui.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Link href="/artigos" className="btn-primary inline-flex items-center justify-center">
-                  <BookOpen className="mr-2 h-5 w-5" />
-                  Ler Últimos Insights
-                </Link>
-                <Link href="/sobre" className="btn-secondary inline-flex items-center justify-center">
-                  <Users className="mr-2 h-5 w-5" />
-                  Minha História
-                </Link>
-              </div>
-              
-              {/* Social Proof */}
-              <div className="flex items-center space-x-6 text-sm text-foreground-secondary">
-                <div className="flex items-center">
-                  <Star className="h-4 w-4 text-yellow-500 mr-1" />
-                  <span>4.9/5 avaliação dos leitores</span>
-                </div>
-                <div className="flex items-center">
-                  <Eye className="h-4 w-4 mr-1" />
-                  <span>12.5K+ leitores mensais</span>
-                </div>
-              </div>
+          <div className="text-center max-w-5xl mx-auto">
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-accent-red/10 text-accent-red text-sm font-medium mb-6">
+              <div className="w-2 h-2 bg-accent-red rounded-full mr-2 animate-pulse"></div>
+              Ao vivo de Shanghai
             </div>
             
-            {/* Stats Card */}
-            <div className="lg:col-span-5 mt-8 lg:mt-0">
-              <div className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-gray-700">
-                <div className="text-center mb-6">
-                  <div className="w-16 h-16 bg-accent-red/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Globe className="h-8 w-8 text-accent-red" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-2">Direto da China</h3>
-                  <p className="text-foreground-secondary">Insights baseados em vivência real</p>
-                </div>
-                
-                <div className="grid grid-cols-2 gap-4">
-                  {stats.map((stat, index) => {
-                    const Icon = stat.icon
-                    return (
-                      <div key={index} className="text-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
-                        <Icon className="h-6 w-6 text-accent-red mx-auto mb-2" />
-                        <div className="text-2xl font-bold text-accent-red">{stat.value}</div>
-                        <div className="text-xs text-foreground-secondary">{stat.label}</div>
-                      </div>
-                    )
-                  })}
-                </div>
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 leading-tight">
+              O ponto de encontro para
+              <span className="block text-gradient">curiosos sobre a China</span>
+            </h1>
+            
+            <p className="text-xl text-foreground-secondary dark:text-foreground-dark-secondary mb-8 leading-relaxed max-w-4xl mx-auto">
+              Um lugar de encontro para curiosos, estudantes e amantes de marketing que querem um contexto profundo da China e sobre inovação a partir do olhar de quem mora lá.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+              <Link href="/artigos" className="btn-primary inline-flex items-center justify-center">
+                <BookOpen className="mr-2 h-5 w-5" />
+                Ler Últimos Insights
+              </Link>
+              <Link href="/sobre" className="btn-secondary inline-flex items-center justify-center">
+                <Users className="mr-2 h-5 w-5" />
+                Minha História
+              </Link>
+            </div>
+            
+            {/* Social Proof */}
+            <div className="flex items-center justify-center space-x-6 text-sm text-foreground-secondary">
+              <div className="flex items-center">
+                <Star className="h-4 w-4 text-yellow-500 mr-1" />
+                <span>4.9/5 avaliação dos leitores</span>
+              </div>
+              <div className="flex items-center">
+                <Eye className="h-4 w-4 mr-1" />
+                <span>12.5K+ leitores mensais</span>
               </div>
             </div>
           </div>
@@ -283,28 +255,9 @@ export default async function HomePage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Recent Activity */}
+            {/* Popular Articles */}
             <div>
-              <h2 className="text-2xl font-bold mb-6 flex items-center">
-                <BarChart3 className="h-6 w-6 text-accent-red mr-3" />
-                Atividade Recente
-              </h2>
-              
-              <div className="space-y-4">
-                {recentActivity.map((activity, index) => (
-                  <div key={index} className="flex items-center p-4 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700">
-                    <div className="w-2 h-2 bg-accent-red rounded-full mr-4"></div>
-                    <div className="flex-1">
-                      <h4 className="font-medium">{activity.title}</h4>
-                      <div className="flex items-center text-sm text-foreground-secondary mt-1">
-                        <span>{activity.time}</span>
-                        <span className="mx-2">•</span>
-                        <span>{activity.engagement}</span>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <PopularArticles limit={5} />
             </div>
             
             {/* Learning Resources */}
@@ -312,7 +265,7 @@ export default async function HomePage() {
               <h2 className="text-2xl font-bold mb-6">Aprenda Comigo</h2>
               
               <div className="space-y-4">
-                <Link href="/biblioteca" className="group flex items-center p-6 bg-white dark:bg-gray-900 rounded-xl hover:shadow-lg transition-all border border-gray-200 dark:border-gray-700">
+                <Link href="/cursos" className="group flex items-center p-6 bg-white dark:bg-gray-900 rounded-xl hover:shadow-lg transition-all border border-gray-200 dark:border-gray-700">
                   <div className="w-12 h-12 bg-accent-red/10 rounded-lg flex items-center justify-center mr-4">
                     <BookOpen className="h-6 w-6 text-accent-red" />
                   </div>
@@ -323,13 +276,13 @@ export default async function HomePage() {
                   <ArrowRight className="h-5 w-5 text-accent-red group-hover:translate-x-1 transition-transform" />
                 </Link>
                 
-                <Link href="/podcasts" className="group flex items-center p-6 bg-white dark:bg-gray-900 rounded-xl hover:shadow-lg transition-all border border-gray-200 dark:border-gray-700">
+                <Link href="/frameworks" className="group flex items-center p-6 bg-white dark:bg-gray-900 rounded-xl hover:shadow-lg transition-all border border-gray-200 dark:border-gray-700">
                   <div className="w-12 h-12 bg-accent-red/10 rounded-lg flex items-center justify-center mr-4">
-                    <span className="text-accent-red text-xl">🎙️</span>
+                    <CheckCircle className="h-6 w-6 text-accent-red" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-semibold group-hover:text-accent-red transition-colors">Podcasts</h3>
-                    <p className="text-sm text-foreground-secondary">Conversas sobre vida na China</p>
+                    <h3 className="font-semibold group-hover:text-accent-red transition-colors">Frameworks</h3>
+                    <p className="text-sm text-foreground-secondary">Estruturas práticas testadas</p>
                   </div>
                   <ArrowRight className="h-5 w-5 text-accent-red group-hover:translate-x-1 transition-transform" />
                 </Link>
@@ -364,16 +317,7 @@ export default async function HomePage() {
               Sem spam, só conteúdo que realmente importa.
             </p>
             
-            <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Seu melhor email"
-                className="flex-1 px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-accent-red focus:border-transparent"
-              />
-              <button type="submit" className="btn-primary whitespace-nowrap">
-                Quero Receber
-              </button>
-            </form>
+            <NewsletterSignup className="max-w-md mx-auto" />
             
             <div className="flex items-center justify-center mt-6 text-sm text-foreground-secondary">
               <CheckCircle className="h-4 w-4 text-green-500 mr-2" />

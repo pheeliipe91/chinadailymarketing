@@ -56,10 +56,10 @@ export default function NotFound() {
               </Link>
               
               <Link 
-                href="/biblioteca" 
+                href="/cursos" 
                 className="block p-2 hover:bg-white dark:hover:bg-gray-800 rounded-lg transition-colors"
               >
-                <p className="font-medium text-accent-red">Biblioteca Premium</p>
+                <p className="font-medium text-accent-red">Cursos Premium</p>
                 <p className="text-sm text-foreground-secondary">E-books e materiais gratuitos</p>
               </Link>
               

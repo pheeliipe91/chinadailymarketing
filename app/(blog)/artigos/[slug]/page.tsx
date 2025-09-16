@@ -3,7 +3,10 @@ import { Header } from '@/components/ui/header'
 import { Footer } from '@/components/ui/footer'
 import { ArticleCard } from '@/components/ui/article-card'
 import { RichTextRenderer } from '@/components/ui/rich-text-renderer'
-import { Clock, Calendar, User, ArrowLeft, Share2, Bookmark } from 'lucide-react'
+import { ShareButtons } from '@/components/ui/share-buttons'
+import { ArticleRating } from '@/components/ui/article-rating'
+import { ArticleViewTracker } from '@/components/ui/article-view-tracker'
+import { Clock, Calendar, User, ArrowLeft, Bookmark } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { formatDate } from '@/lib/utils'
@@ -232,21 +235,22 @@ export default async function ArticlePage({ params }: { params: { slug: string }
   return (
     <div className="min-h-screen bg-background">
       <Header />
+      <ArticleViewTracker articleSlug={params.slug} />
       
-      {/* Article Header */}
-      <article className="pt-24 pb-20">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          {/* Breadcrumb */}
-          <nav className="mb-8">
-            <Link 
-              href="/artigos" 
-              className="inline-flex items-center text-sm text-foreground-secondary hover:text-accent-red transition-colors"
-            >
-              <ArrowLeft className="mr-1 h-4 w-4" />
-              Voltar aos artigos
-            </Link>
-          </nav>
+      <article className="pt-20">
+        {/* Breadcrumb */}
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
+          <Link 
+            href="/artigos"
+            className="inline-flex items-center text-sm text-foreground-secondary hover:text-foreground-primary transition-colors"
+          >
+            <ArrowLeft className="h-4 w-4 mr-2" />
+            Voltar para artigos
+          </Link>
+        </div>
 
+        {/* Article Header */}
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {/* Category & Date */}
           <div className="flex items-center space-x-4 mb-6">
             <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-accent-red text-white">
@@ -291,9 +295,11 @@ export default async function ArticlePage({ params }: { params: { slug: string }
             
             {/* Share buttons */}
             <div className="flex items-center space-x-2">
-              <button className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                <Share2 className="h-5 w-5" />
-              </button>
+              <ShareButtons 
+                url={`${process.env.NEXT_PUBLIC_SITE_URL || 'https://chinadailymarketing.com'}/artigos/${params.slug}`}
+                title={article.title}
+                description={article.excerpt}
+              />
               <button className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
                 <Bookmark className="h-5 w-5" />
               </button>
@@ -356,6 +362,11 @@ export default async function ArticlePage({ params }: { params: { slug: string }
               </p>
             </div>
           </div>
+        </div>
+
+        {/* Article Rating */}
+        <div className="mx-auto max-w-prose-narrow px-4 sm:px-6 lg:px-8 mt-16">
+          <ArticleRating articleSlug={params.slug} />
         </div>
       </article>
 

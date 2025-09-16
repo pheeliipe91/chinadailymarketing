@@ -22,7 +22,7 @@ const timeline = [
   {
     year: '2022',
     title: 'Expansão do Conteúdo',
-    description: 'Lançamento da biblioteca premium com materiais aprofundados.'
+    description: 'Lançamento dos cursos premium com materiais aprofundados.'
   },
   {
     year: '2024',
